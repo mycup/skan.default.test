@@ -1,9 +1,5 @@
 package com.algorithm;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Iterator;
-
 public class BianrySearch {
 	public static void main(String[] args) {
 		int[] index = { 5,4,2,1,3,7,8,6};
@@ -27,14 +23,14 @@ public class BianrySearch {
 			System.out.println(index[i]);
 		}
 		
-		int key = 8;
+		int key = 100;
 		int first = 0 ;
 		int last = index.length;
 		int mid;
 		while (first <= last) {
 			mid = (first+last) /2 ;
 			if(key == index[mid]) {
-				System.out.println(index[mid]);
+				System.out.println("index[mid] = " + index[mid]);
 				break;
 			} else {
 				if(key > index[mid]) {

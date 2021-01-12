@@ -13,7 +13,7 @@ public class Bclass implements Runnable {
 		while (true) {
 			this.i++;
 			try {
-				Thread.sleep(10);
+				Thread.sleep(1000);
 			} catch (Exception e) {
 			}
 			this.listener.runListener(i + "--나지금 돌고 있니~ ㅋㅋㅋㅋ");

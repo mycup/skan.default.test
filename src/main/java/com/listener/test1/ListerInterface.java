@@ -1,8 +1,9 @@
 package com.listener.test1;
+
 /**
  * <pre>
  * Class Name  : ListenerTest1.java
- * Description : 
+ * Description :
  * Modification Information
  *
  *    수정일　　　 　　  수정자　　　     수정내용
@@ -11,54 +12,56 @@ package com.listener.test1;
  * </pre>
  *
  * @author ask
+ * @version Copyright (C) 2014 by SKAN.COMPANY All right reserved.
  * @since 2015. 1. 15.
- * @version 
- *
- * Copyright (C) 2014 by SKAN.COMPANY All right reserved.
  */
 
 class ListenerTest {
-	public static void main(String ...arg) throws Exception {
-		Responder r = new Responder();
-		r.listenerTestMethod("aa", "bb");
-	}
+    public static void main(String... arg) throws Exception {
+        Responder r = new Responder();
+        r.listenerTestMethod("aa", "bb");
+    }
 }
+
 public interface ListerInterface {
-	public  void startListener () ;
-	public  void runListener (int countNumber) ;
+    public void startListener();
+
+    public void runListener(int countNumber);
 }
 
 class InitListener {
-	
-	private ListerInterface listenerInterface;
-	public InitListener(ListerInterface listenerInterface) {
-		this.listenerInterface = listenerInterface;
-		listenerInterface.startListener();
-	}
-	
-	public void methodCall (String a, String b) {
-		
-		System.out.println(a +"/" + b);
-		for (int i = 0 ; i < 100 ; i ++) {
-			listenerInterface.runListener(i);
-		}
-	}
+
+    private ListerInterface listenerInterface;
+
+    public InitListener(ListerInterface listenerInterface) {
+        this.listenerInterface = listenerInterface;
+        listenerInterface.startListener();
+    }
+
+    public void methodCall(String a, String b) {
+
+        System.out.println(a + "/" + b);
+        for (int i = 0; i < 100; i++) {
+            listenerInterface.runListener(i);
+        }
+    }
 }
 
 class Responder implements ListerInterface {
-	
-	public void listenerTestMethod(String a, String b) {
-		InitListener inL =  new InitListener(this);
-		inL.methodCall(a, b);
-	}
-	
-	@Override
-	public void startListener() {
-		System.out.println("Listener Call !");
-	}
-	@Override
-	public void runListener(int countNumber) {
-		System.out.println(countNumber);
-	}
+
+    public void listenerTestMethod(String a, String b) {
+        InitListener inL = new InitListener(this);
+        inL.methodCall(a, b);
+    }
+
+    @Override
+    public void startListener() {
+        System.out.println("Listener Call !");
+    }
+
+    @Override
+    public void runListener(int countNumber) {
+        System.out.println(countNumber);
+    }
 }
 
